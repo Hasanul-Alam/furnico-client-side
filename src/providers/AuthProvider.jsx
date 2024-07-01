@@ -27,16 +27,28 @@ const AuthProvider = ({children}) => {
     return signOut(auth)
   }
 
-  useEffect(()=> {
-    const unSubscribe = onAuthStateChanged(auth, currentUser => {
-      setUser(currentUser);
-      // console.log('current user: ', currentUser)
-      setLoading(false);
-    });
-    return () => {
-      return unSubscribe();
-    }
+  useEffect(()=>{
+    onAuthStateChanged(auth, (user) => {
+      if(user){
+          setUser(user);
+          setLoading(false);
+      }
+      else{
+          setLoading(false);
+      }
+  })
   },[])
+
+  // useEffect(()=> {
+  //   const unSubscribe = onAuthStateChanged(auth, currentUser => {
+  //     setUser(currentUser);
+  //     // console.log('current user: ', currentUser)
+  //     setLoading(false);
+  //   });
+  //   return () => {
+  //     return unSubscribe();
+  //   }
+  // },[])
 
   const authInfo = {
     user,

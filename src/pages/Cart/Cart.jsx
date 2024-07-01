@@ -1,33 +1,42 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../providers/AuthProvider";
+
 const Cart = () => {
-    const cartItems = [
-        { id: 1, name: "Product 1", price: 29.99, quantity: 1, image: 'https://i.ibb.co/NCzfTNc/product-2.png' },
-        { id: 2, name: "Product 2", price: 49.99, quantity: 2, image: 'https://i.ibb.co/NCzfTNc/product-2.png' },
-      ];
+  const [cartItems, setCartItems] = useState([]);
+  const {user} = useContext(AuthContext);
+  useEffect(()=>{
+    const loadData = async () => {
+      const res = await axios.get(`http://localhost:3000/cart?email=${user.email}`)
+      setCartItems(res.data);
+    }
+    loadData()
+  },[user])
     
-      const total = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+      const total = cartItems.reduce((acc, item) => acc + item.price * 1, 0);
   return (
     <>
       <div className="min-h-screen bg-gray-100 py-10">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row shadow-lg bg-white rounded-lg overflow-hidden">
+          <div className="flex flex-col lg:flex-row shadow-lg bg-white rounded-lg overflow-hidden py-5">
             <div className="w-full lg:w-3/4 p-6">
-              <h2 className="text-2xl font-bold mb-4">Shopping Cart</h2>
+              <h2 className="text-2xl font-bold mb-4 text-center text-black mb-3">Shopping Cart</h2>
               <ul>
                 {cartItems.map((item) => (
                   <li
-                    key={item.id}
+                    key={item.name}
                     className="flex items-center justify-between border-b py-4"
                   >
                     <div>
                         <img src={item.image} alt="Chair" width={50} height={50}/>
                     </div>
                     <div>
-                      <h3 className="text-lg">{item.name}</h3>
-                      <p className="text-gray-600">${item.price.toFixed(2)}</p>
+                      <h3 className="text-lg text-black">{item.name}</h3>
+                      <p className="text-gray-600 text-black">${item.price.toFixed(2)}</p>
                     </div>
                     <div className="flex items-center">
                       
-                      <span className="ml-4">
+                      <span className="ml-4 text-black">
                         ${item.price.toFixed(2)}
                       </span>
                     </div>
@@ -35,7 +44,7 @@ const Cart = () => {
                 ))}
               </ul>
             </div>
-            <div className="w-full lg:w-1/4 bg-gray-50 p-6">
+            <div className="w-full lg:w-1/4 bg-gray-50 p-6 text-black">
               <h2 className="text-2xl font-bold mb-4">Summary</h2>
               <div className="flex justify-between mb-2">
                 <span>Subtotal</span>
