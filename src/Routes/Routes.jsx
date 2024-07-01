@@ -8,6 +8,8 @@ import AllProducts from "../pages/AllProducts/AllProducts";
 import Login from "../pages/Login/Login";
 import Registration from "../pages/Registration/Registration";
 import PrivateRoute from "./PrivateRoute";
+import ProductDetails from "../pages/ProductDetails/ProductDetails";
+import Cart from "../pages/Cart/Cart";
 
   export const router = createBrowserRouter([
     {
@@ -33,6 +35,14 @@ import PrivateRoute from "./PrivateRoute";
         {
           path: 'registration',
           element: <Registration></Registration>
+        },
+        {
+          path: 'cart',
+          element: <Cart></Cart>
+        },
+        {
+          path: 'product-details/:id',
+          element: <ProductDetails></ProductDetails>
         },
     ]
     },
