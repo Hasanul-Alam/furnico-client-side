@@ -2,7 +2,7 @@
     {
       "id": "6680dcc160daac52a84ef90b",
       "name": "Manning Black",
-      "price": "$342.85",
+      "price": 342.85,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Laboris culpa nostrud sunt voluptate ullamco occaecat nulla officia dolor aliqua quis deserunt nisi. Deserunt proident aliquip minim ullamco laborum irure laborum nisi laborum ex in minim. Lorem eiusmod ad adipisicing fugiat dolor. Aliquip duis sunt proident ex exercitation quis commodo irure tempor tempor. Nostrud adipisicing ipsum proident fugiat in proident. In aute sint non fugiat commodo cillum aute officia excepteur duis voluptate veniam excepteur ad. Ipsum nostrud duis cupidatat elit commodo ut officia consequat nostrud aute quis.\r\n",
       "available": 35,
@@ -11,7 +11,7 @@
     {
       "id": "6680dcc122839e716ffb55b3",
       "name": "Lillie Carr",
-      "price": "$295.70",
+      "price": 295.70,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Enim consectetur voluptate enim in adipisicing ullamco sunt. Sit sint labore mollit in non cupidatat nisi ipsum fugiat enim exercitation qui exercitation. Aliquip nostrud in irure adipisicing ex anim sunt. Excepteur sint esse in quis. Magna occaecat nulla qui aute ipsum sunt labore do ex cillum eiusmod dolore esse adipisicing. Eiusmod mollit labore voluptate culpa dolore excepteur. Nulla exercitation ipsum sunt occaecat.\r\n",
       "available": 26,
@@ -20,7 +20,7 @@
     {
       "id": "6680dcc1146487a0c39000ba",
       "name": "Anthony Bush",
-      "price": "$582.36",
+      "price": 582.36,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Nisi ex aliquip dolor dolor pariatur pariatur ullamco irure duis est sit. Est sit nulla eu voluptate qui anim labore. Cupidatat qui proident nisi cillum commodo ut cillum consequat.\r\n",
       "available": 5,
@@ -29,7 +29,7 @@
     {
       "id": "6680dcc117e2559dc5e0711d",
       "name": "Ortega Gay",
-      "price": "$1,173.55",
+      "price": 1173.55,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Elit minim sint in nulla voluptate voluptate qui eu est. Tempor fugiat ea id excepteur in dolor Lorem ipsum fugiat quis ea. Consequat nulla ea excepteur commodo consequat deserunt sit dolore ipsum deserunt exercitation dolor tempor. Id dolor sint do nulla eiusmod incididunt adipisicing tempor laboris. Pariatur nisi consequat veniam non occaecat eu eiusmod consectetur.\r\n",
       "available": 29,
@@ -38,7 +38,7 @@
     {
       "id": "6680dcc18fd109b39d95d80e",
       "name": "Kathleen Ford",
-      "price": "$413.05",
+      "price": 413.05,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Aute dolor minim adipisicing qui mollit tempor ut ut anim officia nostrud adipisicing culpa. Eiusmod officia ullamco magna esse id. Reprehenderit labore tempor dolor incididunt amet ea consequat anim magna. Exercitation duis fugiat do commodo laboris cupidatat pariatur. Anim ullamco non nostrud occaecat aliqua incididunt aute qui aliqua exercitation duis tempor.\r\n",
       "available": 31,
@@ -47,7 +47,7 @@
     {
       "id": "6680dcc1634903b475998a5a",
       "name": "Lois Alford",
-      "price": "$1,162.74",
+      "price": 1162.74,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Dolor officia enim do elit. Non reprehenderit eiusmod reprehenderit dolore aliquip elit. Tempor laboris duis in anim adipisicing laboris. Exercitation sint ea officia incididunt culpa deserunt. Sunt elit adipisicing cupidatat ipsum deserunt anim ut minim ad sint adipisicing sint aliqua. Duis eu non aute est.\r\n",
       "available": 41,
@@ -56,7 +56,7 @@
     {
       "id": "6680dcc15785bd1c4c2538d4",
       "name": "Claudine Weiss",
-      "price": "$1,316.20",
+      "price": 1316.20,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Sint minim qui sunt proident enim ex et id ipsum ut proident labore. Enim consequat voluptate irure aliquip esse officia non qui elit do et tempor nulla. Ad Lorem sunt id incididunt aute nulla sit cupidatat commodo consequat occaecat. Id eiusmod elit duis irure quis. Aliqua magna ullamco dolor ea dolor consectetur minim cupidatat enim elit dolor qui. Fugiat ullamco dolore consectetur id laboris minim quis.\r\n",
       "available": 44,
@@ -65,7 +65,7 @@
     {
       "id": "6680dcc1de3dd626d16e6e5a",
       "name": "Fields Branch",
-      "price": "$1,180.58",
+      "price": 1180.58,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Adipisicing anim culpa deserunt aliqua consequat laboris. Mollit sint culpa quis nisi ea ipsum ad voluptate sit laborum. Officia veniam ad magna deserunt.\r\n",
       "available": 40,
@@ -74,7 +74,7 @@
     {
       "id": "6680dcc1ec9b5b885c539ea1",
       "name": "Patricia Rose",
-      "price": "$997.62",
+      "price": 997.62,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Occaecat velit deserunt est Lorem cupidatat nostrud veniam incididunt mollit elit eu nisi sint. Anim laboris in irure anim sit in id tempor ea fugiat. Velit aute elit laboris amet. Amet ad labore proident elit nisi.\r\n",
       "available": 4,
@@ -83,7 +83,7 @@
     {
       "id": "6680dcc1fb2b7decb614b2c5",
       "name": "Marsh Barber",
-      "price": "$707.52",
+      "price": 707.52,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Cillum deserunt exercitation in deserunt et anim id qui culpa eiusmod magna officia nostrud. Sint Lorem et exercitation cillum nostrud eu aute ex tempor laboris. Ipsum eiusmod et veniam aliqua voluptate ad nostrud commodo qui veniam ex culpa veniam. Dolore cillum labore irure esse ex esse. Voluptate commodo exercitation ut labore in culpa irure laboris sit id sunt proident.\r\n",
       "available": 34,
@@ -92,7 +92,7 @@
     {
       "id": "6680dcc142a585eb857614f3",
       "name": "Goodman Odom",
-      "price": "$716.57",
+      "price": 716.57,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Est exercitation consequat nostrud deserunt veniam eiusmod proident dolore est ad fugiat. Eiusmod elit dolor anim ut est. Ipsum culpa ullamco fugiat fugiat officia eiusmod officia voluptate id. Incididunt elit nisi nulla cupidatat ea dolor proident anim consequat consequat eu dolor. Nisi laborum proident mollit ex aliqua nulla ea officia sunt ut. Ex ut amet fugiat est adipisicing eiusmod ut qui dolore occaecat minim.\r\n",
       "available": 6,
@@ -101,7 +101,7 @@
     {
       "id": "6680dcc109b044cc9e311319",
       "name": "Grace Ellison",
-      "price": "$1,396.33",
+      "price": 1396.33,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Dolore cupidatat excepteur amet exercitation nostrud ex aliquip cillum. Ad in aliqua id fugiat et in labore est nisi ut. Officia fugiat eiusmod deserunt fugiat consectetur mollit esse pariatur minim elit laborum ullamco laborum proident.\r\n",
       "available": 36,
@@ -110,7 +110,7 @@
     {
       "id": "6680dcc140c7c1ed915e8389",
       "name": "Jeannie Campbell",
-      "price": "$1,324.80",
+      "price": 1324.80,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Cillum ullamco nostrud pariatur voluptate deserunt pariatur officia reprehenderit nisi nisi do pariatur labore reprehenderit. Et quis cillum esse culpa anim reprehenderit enim magna occaecat sint culpa. Deserunt irure aliqua sint labore nisi irure esse fugiat. Amet cupidatat ullamco et esse. Proident commodo nisi Lorem fugiat ipsum sit Lorem mollit velit occaecat minim fugiat nostrud ad. Mollit tempor amet culpa cupidatat est nisi cillum duis. Reprehenderit enim fugiat qui anim esse aute incididunt.\r\n",
       "available": 15,
@@ -119,7 +119,7 @@
     {
       "id": "6680dcc16ef1d34c79072642",
       "name": "Melba Stanton",
-      "price": "$281.45",
+      "price": 281.45,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Eiusmod et sit in laboris in eiusmod culpa enim ea id. Anim nostrud tempor cupidatat Lorem quis ad enim laboris consequat. Cupidatat ad officia ut minim occaecat consectetur. Duis est incididunt excepteur cupidatat consectetur occaecat sunt velit laborum nisi. Nulla duis pariatur sit laborum elit culpa laboris dolor magna.\r\n",
       "available": 0,
@@ -128,7 +128,7 @@
     {
       "id": "6680dcc1886c25c467cbf3fd",
       "name": "Mejia Williamson",
-      "price": "$1,462.75",
+      "price": 1462.75,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Aute pariatur in est anim eu sint est deserunt non duis irure. Ad labore minim sunt veniam duis nostrud amet consectetur pariatur deserunt Lorem ullamco nulla. Non tempor do est esse. Nisi esse amet ut qui. Ut ullamco amet nisi culpa exercitation velit minim ea nostrud. Aliquip pariatur occaecat ut aliqua voluptate culpa est ex aliqua minim id.\r\n",
       "available": 41,
@@ -137,7 +137,7 @@
     {
       "id": "6680dcc157e83071eeb637df",
       "name": "Jewell Travis",
-      "price": "$298.71",
+      "price": 298.71,
       "image": "https://i.ibb.co/HBs9fYZ/product-1.png",
       "description": "Aute amet culpa officia ullamco esse quis aliqua eiusmod elit fugiat labore fugiat non fugiat. Est reprehenderit ipsum ullamco irure ipsum esse. Proident qui deserunt adipisicing ut ex proident sit. Excepteur commodo magna elit ullamco eu veniam in est eiusmod enim. Esse reprehenderit fugiat amet officia. Exercitation adipisicing non ipsum anim officia incididunt tempor. Non anim nulla minim dolor deserunt elit laboris adipisicing in aliquip ea sunt laborum duis.\r\n",
       "available": 22,
@@ -146,7 +146,7 @@
     {
       "id": "6680dcc1f5bc22902bc40c07",
       "name": "Nikki Roy",
-      "price": "$582.80",
+      "price": 582.80,
       "image": "https://i.ibb.co/NCzfTNc/product-2.png",
       "description": "Qui exercitation veniam velit ex dolore id ad deserunt ullamco qui mollit. Labore adipisicing ad nostrud non. Fugiat ea cupidatat aute enim amet duis laborum enim proident eu occaecat amet Lorem consectetur. Ea officia sint non amet laborum nostrud cillum in duis mollit dolor anim elit ea. Cillum magna incididunt ullamco do minim aliquip eiusmod nisi sunt non nulla adipisicing.\r\n",
       "available": 41,
@@ -155,7 +155,7 @@
     {
       "id": "6680dcc1bca51aa7f17451f3",
       "name": "Sonya Parker",
-      "price": "$949.95",
+      "price": 949.95,
       "image": "https://i.ibb.co/Zm8Qx1d/product-3.png",
       "description": "Dolor aliquip labore tempor do cupidatat. Consectetur quis et deserunt reprehenderit tempor culpa duis cupidatat. Ad commodo fugiat duis eu consectetur voluptate duis. Ea esse laborum veniam ullamco amet elit est tempor quis ea reprehenderit. Eu ad velit elit mollit nostrud aliqua laboris ex labore eu laborum. Qui dolor sunt sint ullamco ea adipisicing laborum laborum nulla proident deserunt culpa veniam ipsum. Sint qui nulla dolor consequat consequat.\r\n",
       "available": 28,
