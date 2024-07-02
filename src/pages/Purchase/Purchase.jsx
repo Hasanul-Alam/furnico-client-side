@@ -8,25 +8,33 @@ import { useParams } from "react-router-dom";
 const Purchase = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useContext(AuthContext);
-  const { price } = useParams();
+  let { price } = useParams();
 
   const handlePayment = (data) => {
     const paymentInfo = data;
-    axios.post("http://localhost:3000/payments", paymentInfo).then((res) => {
-      if (res.data.insertedId) {
-
-        // Remove data from cart
-        axios.delete(`http://localhost:3000/cart?email=${user.email}`)
-        .then(res => {
-            if(res.data.deletedCount > 0){
+    if (price <= 0) {
+      Swal.fire({
+        icon: "error",
+        title: "You do't have anything in your cart.",
+        text: "Get something first"
+      });
+    } else {
+      axios.post("http://localhost:3000/payments", paymentInfo).then((res) => {
+        if (res.data.insertedId) {
+          // Remove data from cart
+          axios
+            .delete(`http://localhost:3000/cart?email=${user.email}`)
+            .then((res) => {
+              if (res.data.deletedCount > 0) {
                 Swal.fire("Your payment is successfull");
+                price = 0;
                 reset();
-            }
-        })
-      }
-    });
+              }
+            });
+        }
+      });
+    }
   };
-
 
   return (
     <div className="min-h-screen bg-gray-100 flex items-center justify-center max-md:bg-white">

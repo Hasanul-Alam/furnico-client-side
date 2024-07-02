@@ -2,10 +2,13 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const [cartItems, setCartItems] = useState([]);
   const { user } = useContext(AuthContext);
+  const [refetch, setRefetch] = useState(false);
+
   useEffect(() => {
     const loadData = async () => {
       const res = await axios.get(
@@ -14,11 +17,38 @@ const Cart = () => {
       setCartItems(res.data);
     };
     loadData();
-  }, [user]);
+  }, [refetch]);
 
   const subTotal = cartItems.reduce((acc, item) => acc + item.price * 1, 0);
   const tax = subTotal * 0.1;
   const total = subTotal + tax;
+
+  const handleRemoveItem = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "This is a limited edition product",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, remove it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios.delete(`http://localhost:3000/cart-item/${id}`).then((res) => {
+          if (res.data.deletedCount > 0) {
+            setRefetch(!refetch);
+
+            Swal.fire({
+              icon: "success",
+              title: "Item deleted successfully.",
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          }
+        });
+      }
+    });
+  };
   return (
     <>
       <div className="min-h-screen bg-gray-100 py-10">
@@ -42,16 +72,22 @@ const Cart = () => {
                         height={50}
                       />
                     </div>
-                    <div>
+                    <div className="text-center">
                       <h3 className="text-lg text-black">{item.name}</h3>
-                      <p className="text-gray-600 text-black">
+                      <p className="text-gray-600 text-black font-semibold mt-2">
                         ${item.price.toFixed(2)}
                       </p>
                     </div>
                     <div className="flex items-center">
-                      <span className="ml-4 text-black">
+                      <span className="mx-4 text-black">
                         ${item.price.toFixed(2)}
                       </span>
+                      <button
+                        onClick={() => handleRemoveItem(item._id)}
+                        className="btn btn-outline btn-error"
+                      >
+                        Remove
+                      </button>
                     </div>
                   </li>
                 ))}
@@ -65,13 +101,13 @@ const Cart = () => {
               </div>
               <div className="flex justify-between mb-2">
                 <span>Tax</span>
-                <span>${(tax).toFixed(2)}</span>
+                <span>${tax.toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-4 font-bold">
                 <span>Total</span>
-                <span>${(total).toFixed(2)}</span>
+                <span>${total.toFixed(2)}</span>
               </div>
-              <Link to={`/purchase/${(total.toFixed(2))}`}>
+              <Link to={`/purchase/${total.toFixed(2)}`}>
                 <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
                   Checkout
                 </button>
@@ -81,11 +117,6 @@ const Cart = () => {
         </div>
       </div>
     </>
-    // <div className="bg-white text-black">
-    //     <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
-    //         <h2>This is cart page.</h2>
-    //     </div>
-    // </div>
   );
 };
 
