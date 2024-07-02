@@ -6,13 +6,14 @@ import Footer from "../pages/home/Footer/Footer";
 const Main = () => {
 
     const location = useLocation();
+    const purchaseLocation = location.pathname.includes('/purchase')
 
     return (
         <div>
             <Navbar></Navbar>
             <Outlet></Outlet>
             {/* Make footer invisible while at login and registration page. */}
-            {location.pathname !== '/login' && location.pathname !== '/registration' && location.pathname !== '/purchase' && location.pathname !== '/user-dashboard' ? <Footer></Footer> : ''}
+            {location.pathname !== '/login' && location.pathname !== '/registration' && !purchaseLocation && location.pathname !== '/user-dashboard' ? <Footer></Footer> : ''}
         </div>
     );
 };

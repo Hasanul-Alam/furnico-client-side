@@ -75,7 +75,7 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "purchase",
+        path: "purchase/:price",
         element: (
           <PrivateRoute>
             <Purchase></Purchase>

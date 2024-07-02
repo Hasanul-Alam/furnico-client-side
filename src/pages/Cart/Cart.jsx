@@ -16,7 +16,9 @@ const Cart = () => {
     loadData();
   }, [user]);
 
-  const total = cartItems.reduce((acc, item) => acc + item.price * 1, 0);
+  const subTotal = cartItems.reduce((acc, item) => acc + item.price * 1, 0);
+  const tax = subTotal * 0.1;
+  const total = subTotal + tax;
   return (
     <>
       <div className="min-h-screen bg-gray-100 py-10">
@@ -29,7 +31,7 @@ const Cart = () => {
               <ul>
                 {cartItems.map((item) => (
                   <li
-                    key={item.name}
+                    key={item._id}
                     className="flex items-center justify-between border-b py-4"
                   >
                     <div>
@@ -59,17 +61,17 @@ const Cart = () => {
               <h2 className="text-2xl font-bold mb-4">Summary</h2>
               <div className="flex justify-between mb-2">
                 <span>Subtotal</span>
-                <span>${total.toFixed(2)}</span>
+                <span>${subTotal.toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-2">
                 <span>Tax</span>
-                <span>${(total * 0.1).toFixed(2)}</span>
+                <span>${(tax).toFixed(2)}</span>
               </div>
               <div className="flex justify-between mb-4 font-bold">
                 <span>Total</span>
-                <span>${(total * 1.1).toFixed(2)}</span>
+                <span>${(total).toFixed(2)}</span>
               </div>
-              <Link to={"/purchase"}>
+              <Link to={`/purchase/${(total.toFixed(2))}`}>
                 <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700">
                   Checkout
                 </button>
