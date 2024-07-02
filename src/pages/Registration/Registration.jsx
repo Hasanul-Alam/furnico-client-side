@@ -3,28 +3,41 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
 import { useContext } from "react";
+import axios from "axios";
 
 const Registration = () => {
-  const { createUserWithEmailPassword, setUser, setError } = useContext(AuthContext);
+  const { createUserWithEmailPassword, setUser, setError, updateUserProfile } =
+    useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
 
   const submitRegistration = (data) => {
-    // console.log(data);
-    const { email, password, confirmPassword } = data;
+    const { email, password, confirmPassword, name, photoUrl } = data;
     if (password === confirmPassword) {
       createUserWithEmailPassword(email, password)
         .then((result) => {
-            if(result.user.uid){
-                setUser(result.user);
-                Swal.fire({
+          if (result.user.uid) {
+            setUser(result.user);
+            updateUserProfile(name, photoUrl).then(() => {
+              const userInfo = {
+                name: name,
+                email: email,
+                photoUrl: photoUrl,
+              };
+              axios.post("http://localhost:3000/all-users", userInfo).then((res) => {
+                if (res.data.insertedId) {
+                  console.log(res.data)
+                  reset();
+                  Swal.fire({
                     title: "Success",
                     text: "You have successfully registered.",
-                    icon: "success"
+                    icon: "success",
                   });
-            }
-            reset();
+                }
+              });
+            });
+          }
         })
-        .catch((error) => setError(error.message))
+        .catch((error) => setError(error.message));
     }
   };
 
@@ -43,7 +56,7 @@ const Registration = () => {
               Full Name
             </label>
             <input
-              {...register("fullName", { required: true })}
+              {...register("name", { required: true })}
               className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white"
               id="fullName"
               type="text"
@@ -64,6 +77,22 @@ const Registration = () => {
               id="email"
               type="email"
               placeholder="Email"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
+              Photo Url
+            </label>
+            <input
+              {...register("photoUrl", { required: true })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white"
+              id="photo"
+              type="text"
+              placeholder="Enter your photo link here."
               required
             />
           </div>

@@ -1,6 +1,16 @@
+import axios from "axios";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 const Products = () => {
+  const [products, setProducts] = useState([]);
+  const {user} = useContext(AuthContext);
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/all-products")
+      .then((res) => setProducts(res.data));
+  }, []);
   return (
     <div className="bg-white py-16">
       <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
@@ -14,120 +24,30 @@ const Products = () => {
 
         {/* Products */}
         <div className="flex flex-wrap gap-5 justify-center">
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
+          {products.slice(0,6).map((product) => (
+            <div
+              key={product.key}
+              className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10"
+            >
+              <figure className="w-3/4 mx-auto max-md:w-full">
+                <img src={product.image} alt="Chairs" />
+              </figure>
+              <div className="card-body">
+                <h2 className="card-title">{product.name}</h2>
+                <p>
+                  {product.description.slice(0,50)}
+                </p>
+                <p className="font-semibold">Price: ${product.price}</p>
+                <div className="card-actions justify-end">
+                <Link to={`${user ? `/product-details/${product.id}` : '/login'}`}>
+                  <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
+                    Buy Now
+                  </button>
+                </Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
-          <div className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10">
-            <figure className="w-3/4 mx-auto max-md:w-full">
-              <img src="https://i.ibb.co/nkQPSWf/product-1.png" alt="Shoes" />
-            </figure>
-            <div className="card-body">
-              <h2 className="card-title">Nordic Chair</h2>
-              <p>
-                The chair, crafted from oak, features a cushioned seat,
-                ergonomic design, and elegant curves, blending comfort with
-                style.
-              </p>
-              <p className="font-semibold">Price: $350</p>
-              <div className="card-actions justify-end">
-                <button className="btn  bg-green-900 text-white hover:bg-green-800 border-0">
-                  Buy Now
-                </button>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
         <Link to={"/all-products"}>
           <button className="btn rounded-full mx-auto block mt-10 bg-slate-900 text-white text-lg font-semibold hover:bg-slate-800">
