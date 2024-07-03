@@ -1,12 +1,13 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TiShoppingCart } from "react-icons/ti";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useRole from "../../../hooks/useRole";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logout } = useContext(AuthContext);
+  const [userRole] = useRole();
 
   const handleLogOut = () => {
     logout()
@@ -16,7 +17,6 @@ const Navbar = () => {
       });
   };
 
-  // console.log(user)
   return (
     <>
       <nav className="bg-green-900">
@@ -93,7 +93,11 @@ const Navbar = () => {
                   </Link>
                   {user ? (
                     <Link
-                      to={"/user-dashboard"}
+                      to={
+                        userRole === "admin"
+                          ? "/dashboard/admin-dashboard"
+                          : "/dashboard/user-dashboard"
+                      }
                       className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
                     >
                       {user.displayName}
@@ -157,27 +161,31 @@ const Navbar = () => {
             >
               Cart
             </Link>
-            {
-              user ? <Link
-              to={"/user-dashboard"}
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
-            >
-              {'Hasanul'}
-            </Link> : <></>
-            }
-            {
-              user ? <button
-              onClick={handleLogOut}
-              className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
-            >
-              Logout
-            </button> : <Link
-              to={"/login"}
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
-            >
-              Login
-            </Link>
-            }
+            {user ? (
+              <Link
+                to={"/user-dashboard"}
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                {user.displayName}
+              </Link>
+            ) : (
+              <></>
+            )}
+            {user ? (
+              <button
+                onClick={handleLogOut}
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link
+                to={"/login"}
+                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+              >
+                Login
+              </Link>
+            )}
           </div>
         </div>
       </nav>

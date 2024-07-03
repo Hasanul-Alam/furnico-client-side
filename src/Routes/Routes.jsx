@@ -12,6 +12,10 @@ import ProtectedRoute from "./ProtectedRoute";
 import UserDashboard from "../pages/dashboard/UserDashboard/UserDashboard";
 import AdminDashboard from "../pages/dashboard/AdminDashboard/AdminDashboard";
 import Purchase from "../pages/Purchase/Purchase";
+import DahsboardLayout from "../Layout/DahsboardLayout";
+import UserOrders from "../pages/dashboard/UserDashboard/UserOrders/UserOrders";
+import AdminRoute from "./AdminRoute";
+import ManageAllOrders from "../Layout/DashboardSidebar/AdminSidebar/ManageAllOrders/ManageAllOrders";
 
 export const router = createBrowserRouter([
   {
@@ -67,14 +71,6 @@ export const router = createBrowserRouter([
         ),
       },
       {
-        path: "user-dashboard",
-        element: (
-          <PrivateRoute>
-            <UserDashboard></UserDashboard>
-          </PrivateRoute>
-        ),
-      },
-      {
         path: "purchase/:price",
         element: (
           <PrivateRoute>
@@ -82,13 +78,39 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoute>
+        <DahsboardLayout></DahsboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: <UserDashboard></UserDashboard>,
+      },
       {
         path: "admin-dashboard",
         element: (
-          <PrivateRoute>
+          <AdminRoute>
             <AdminDashboard></AdminDashboard>
-          </PrivateRoute>
+          </AdminRoute>
         ),
+      },
+      {
+        path: "manage-all-orders",
+        element: <ManageAllOrders></ManageAllOrders>
+      },
+      {
+        path: "user-dashboard",
+        element: <UserDashboard></UserDashboard>,
+      },
+      {
+        path: "my-orders",
+        element: <UserOrders></UserOrders>,
       },
     ],
   },

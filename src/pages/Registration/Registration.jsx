@@ -9,6 +9,7 @@ const Registration = () => {
   const { createUserWithEmailPassword, setUser, setError, updateUserProfile } =
     useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
+  const role = 'user';
 
   const submitRegistration = (data) => {
     const { email, password, confirmPassword, name, photoUrl } = data;
@@ -17,11 +18,12 @@ const Registration = () => {
         .then((result) => {
           if (result.user.uid) {
             setUser(result.user);
-            updateUserProfile(name, photoUrl).then(() => {
+            updateUserProfile(name, photoUrl, role).then(() => {
               const userInfo = {
                 name: name,
                 email: email,
                 photoUrl: photoUrl,
+                role: 'user'
               };
               axios.post("http://localhost:3000/all-users", userInfo).then((res) => {
                 if (res.data.insertedId) {

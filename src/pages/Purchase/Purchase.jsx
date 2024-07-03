@@ -10,16 +10,32 @@ const Purchase = () => {
   const { user } = useContext(AuthContext);
   let { price } = useParams();
 
+  // Get Current Date
+  const currentDate = new Date();
+  const day = currentDate.getDate();
+  const month = currentDate.getMonth() + 1;
+  const year = currentDate.getFullYear();
+  const formattedDate = `${day}-${month}-${year}`;
+
+  //Status
+  const status = "pending";
+
   const handlePayment = (data) => {
-    const paymentInfo = data;
+    const formData = data;
+
+    // Pushing date and status in the data
+    formData.date = formattedDate;
+    formData.status = status;
+    const orderInfo = formData;
+
     if (price <= 0) {
       Swal.fire({
         icon: "error",
         title: "You do't have anything in your cart.",
-        text: "Get something first"
+        text: "Get something first",
       });
     } else {
-      axios.post("http://localhost:3000/payments", paymentInfo).then((res) => {
+      axios.post("http://localhost:3000/orders", orderInfo).then((res) => {
         if (res.data.insertedId) {
           // Remove data from cart
           axios
@@ -40,7 +56,7 @@ const Purchase = () => {
     <div className="min-h-screen bg-gray-100 flex items-center justify-center max-md:bg-white">
       <div className="bg-white p-8 rounded shadow-md w-full max-w-md max-md:shadow-none">
         <h2 className="text-2xl font-bold mb-6 text-gray-900">
-          Payment Information
+          Order Information
         </h2>
         <form onSubmit={handleSubmit(handlePayment)} id="purchase-form">
           <div className="mb-4">
