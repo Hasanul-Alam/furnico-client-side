@@ -15,7 +15,8 @@ import Purchase from "../pages/Purchase/Purchase";
 import DahsboardLayout from "../Layout/DahsboardLayout";
 import UserOrders from "../pages/dashboard/UserDashboard/UserOrders/UserOrders";
 import AdminRoute from "./AdminRoute";
-import ManageAllOrders from "../Layout/DashboardSidebar/AdminSidebar/ManageAllOrders/ManageAllOrders";
+import ManageAllOrders from "../pages/dashboard/AdminDashboard/ManageAllOrders/ManageAllOrders";
+import ManageAllUsers from "../pages/dashboard/AdminDashboard/ManageAllUsers/ManageAllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ export const router = createBrowserRouter([
       {
         path: "manage-all-orders",
         element: <ManageAllOrders></ManageAllOrders>
+      },
+      {
+        path: "all-users",
+        element: <ManageAllUsers></ManageAllUsers>
       },
       {
         path: "user-dashboard",

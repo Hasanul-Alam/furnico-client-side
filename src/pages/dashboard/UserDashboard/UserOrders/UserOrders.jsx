@@ -60,7 +60,7 @@ const UserOrders = () => {
       ) : (
         <div className="overflow-x-auto bg-white text-black min-h-screen py-10">
           <div className="w-11/12 mx-auto">
-            <table className="w-full divide-y divide-gray-200">
+            <table className="w-full divide-y divide-gray-200 overscroll-y-contain">
               <thead className="bg-gray-800 text-white">
                 <tr className="">
                   <th

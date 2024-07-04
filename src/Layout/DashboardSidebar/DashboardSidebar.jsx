@@ -4,14 +4,14 @@ import useRole from "../../hooks/useRole";
 import AdminSidebar from "./AdminSidebar/AdminSidebar";
 import UserSidebar from "./UserSidebar/UserSidebar";
 
-
 const DashboardSidebar = () => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-    const [userRole] = useRole();
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [userRole] = useRole();
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
+
   return (
     <div className="min-h-screen flex">
       <aside
@@ -22,7 +22,7 @@ const DashboardSidebar = () => {
         <div className="p-4">
           <h1 className="text-2xl font-bold">Dashboard</h1>
         </div>
-        {userRole === 'admin' ? <AdminSidebar/> : <UserSidebar />}
+        {userRole === "admin" ? <AdminSidebar /> : <UserSidebar />}
       </aside>
       <div className="flex-1 flex flex-col">
         <header className="bg-green-800 text-white p-4 shadow md:hidden flex justify-between items-center">
@@ -45,7 +45,7 @@ const DashboardSidebar = () => {
           </button>
         </header>
         <div>
-            <Outlet></Outlet>
+          <Outlet></Outlet>
         </div>
       </div>
     </div>

@@ -61,42 +61,42 @@ const ManageAllOrders = () => {
         <div className="overflow-x-auto bg-white text-black min-h-screen py-10">
           <div className="w-11/12 mx-auto">
             <h2 className="text-center font-semibold text-3xl mb-10">All Orders</h2>
-            <table className="w-full divide-y divide-gray-200">
+            <table className="w-full divide-y divide-gray-200 max-md:table-xs">
               <thead className="bg-gray-800 text-white">
-                <tr className="">
+                <tr className="max-md:text-xs">
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Name
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Address
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Phone
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Price
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Status
                   </th>
                   <th
                     scope="col"
-                    className="px-6 py-3 text-left font-medium uppercase tracking-wider"
+                    className="px-6 py-3 text-left font-medium uppercase tracking-wider max-md:text-center"
                   >
                     Action
                   </th>
