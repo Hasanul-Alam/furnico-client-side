@@ -8,7 +8,7 @@ const Products = () => {
   const {user} = useContext(AuthContext);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/all-products")
+      .get("https://furnico-server.onrender.com/all-products")
       .then((res) => setProducts(res.data));
   }, []);
   return (

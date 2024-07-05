@@ -10,7 +10,7 @@ const ManageAllOrders = () => {
   const [refetch, setRefetch] = useState(false);
 
   useEffect(() => {
-    axios.get("http://localhost:3000/all-orders").then((res) => {
+    axios.get("https://furnico-server.onrender.com/all-orders").then((res) => {
       setOrders(res.data);
       setLoading(false);
     });
@@ -28,7 +28,7 @@ const ManageAllOrders = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:3000/order/${id}`, { status: status })
+          .patch(`https://furnico-server.onrender.com/order/${id}`, { status: status })
           .then((res) => {
             if (res.data.modifiedCount > 0 && status === "approved") {
               Swal.fire({
@@ -38,14 +38,14 @@ const ManageAllOrders = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
-            } else if (res.data.modifiedCount > 0 && status === "cancled") {
+            } else if (res.data.modifiedCount > 0 && status === "cancelled") {
               Swal.fire({
                 icon: "success",
-                title: "Order Cancled Successfully",
-                text: "The order has been cancled.",
+                title: "Order cancelled Successfully",
+                text: "The order has been cancelled.",
               });
             }
-            setRefetch(!refetch)
+            setRefetch(!refetch);
           });
       }
     });
@@ -60,7 +60,9 @@ const ManageAllOrders = () => {
       ) : (
         <div className="overflow-x-auto bg-white text-black min-h-screen py-10">
           <div className="w-11/12 mx-auto">
-            <h2 className="text-center font-semibold text-3xl mb-10">All Orders</h2>
+            <h2 className="text-center font-semibold text-3xl mb-10">
+              All Orders
+            </h2>
             <table className="w-full divide-y divide-gray-200 max-md:table-xs">
               <thead className="bg-gray-800 text-white">
                 <tr className="max-md:text-xs">
@@ -130,8 +132,10 @@ const ManageAllOrders = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
                         className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
-                          order.status === "cancled"
+                          order.status === "cancelled"
                             ? "bg-red-100 text-red-800"
+                            : order.status === "pending"
+                            ? "bg-yellow-100 text-yellow-800"
                             : "bg-green-100 text-green-800"
                         }`}
                       >
@@ -144,7 +148,8 @@ const ManageAllOrders = () => {
                           handleApproveCancle(order._id, "approved")
                         }
                         className={` ${
-                          order.status
+                          order.status === "cancelled" ||
+                          order.status === "approved"
                             ? "btn-disabled p-4 border rounded-lg border-slate-400 text-gray-500"
                             : "btn btn-outline btn-success"
                         }`}
@@ -153,10 +158,11 @@ const ManageAllOrders = () => {
                       </button>
                       <button
                         onClick={() =>
-                          handleApproveCancle(order._id, "cancled")
+                          handleApproveCancle(order._id, "cancelled")
                         }
                         className={` ${
-                          order.status
+                          order.status === "cancelled" ||
+                          order.status === "approved"
                             ? "btn-disabled p-4 border rounded-lg border-slate-400 text-gray-500"
                             : "btn btn-outline btn-error"
                         }`}

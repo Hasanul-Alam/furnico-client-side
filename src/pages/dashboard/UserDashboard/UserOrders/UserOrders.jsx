@@ -16,7 +16,7 @@ const UserOrders = () => {
     setLoading(true);
     const loadData = async () => {
       const res = await axios.get(
-        `http://localhost:3000/orders?email=${user.email}`
+        `https://furnico-server.onrender.com/orders?email=${user.email}`
       );
       setOrders(res.data);
       if (res.data) {
@@ -37,7 +37,7 @@ const UserOrders = () => {
       confirmButtonText: "Yes, cancle it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/orders/${id}`).then((res) => {
+        axios.delete(`https://furnico-server.onrender.com/orders/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setRefetch(!refetch);
             Swal.fire({
@@ -127,8 +127,8 @@ const UserOrders = () => {
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
-                      <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                        Pending
+                      <span className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${order.status === 'cancelled' ? 'bg-red-100 text-red-800' : order.status === 'pending' ? 'bg-yellow-100 text-yellow-800' : 'px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800'}`}>
+                        {order.status}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">

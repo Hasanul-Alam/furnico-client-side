@@ -9,38 +9,56 @@ const Registration = () => {
   const { createUserWithEmailPassword, setUser, setError, updateUserProfile } =
     useContext(AuthContext);
   const { register, handleSubmit, reset } = useForm();
-  const role = 'user';
+  const role = "user";
+
+  // const submitRegistration = (data) => {};
 
   const submitRegistration = (data) => {
-    const { email, password, confirmPassword, name, photoUrl } = data;
-    if (password === confirmPassword) {
-      createUserWithEmailPassword(email, password)
-        .then((result) => {
-          if (result.user.uid) {
-            setUser(result.user);
-            updateUserProfile(name, photoUrl, role).then(() => {
-              const userInfo = {
-                name: name,
-                email: email,
-                photoUrl: photoUrl,
-                role: 'user'
-              };
-              axios.post("http://localhost:3000/all-users", userInfo).then((res) => {
-                if (res.data.insertedId) {
-                  console.log(res.data)
-                  reset();
-                  Swal.fire({
-                    title: "Success",
-                    text: "You have successfully registered.",
-                    icon: "success",
-                  });
-                }
-              });
-            });
-          }
-        })
-        .catch((error) => setError(error.message));
-    }
+    const imageFile = { image: data.image[0] };
+    axios
+      .post(
+        "https://api.imgbb.com/1/upload?key=a034eb9194a3961792dc743224e30bd2",
+        imageFile,
+        {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        }
+      )
+      .then(async (res) => {
+        const image = res.data.data.display_url;
+        const { email, password, confirmPassword, name } = data;
+        if (password === confirmPassword) {
+          createUserWithEmailPassword(email, password)
+            .then((result) => {
+              if (result.user.uid) {
+                setUser(result.user);
+                updateUserProfile(name, image, role).then(() => {
+                  const userInfo = {
+                    name: name,
+                    email: email,
+                    photoUrl: image,
+                    role: "user",
+                  };
+                  axios
+                    .post("https://furnico-server.onrender.com/all-users", userInfo)
+                    .then((res) => {
+                      if (res.data.insertedId) {
+                        console.log(res.data);
+                        reset();
+                        Swal.fire({
+                          title: "Success",
+                          text: "You have successfully registered.",
+                          icon: "success",
+                        });
+                      }
+                    });
+                });
+              }
+            })
+            .catch((error) => setError(error.message));
+        }
+      });
   };
 
   return (
@@ -85,22 +103,6 @@ const Registration = () => {
           <div className="mb-4">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="email"
-            >
-              Photo Url
-            </label>
-            <input
-              {...register("photoUrl", { required: true })}
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white"
-              id="photo"
-              type="text"
-              placeholder="Enter your photo link here."
-              required
-            />
-          </div>
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
               htmlFor="password"
             >
               Password
@@ -127,6 +129,22 @@ const Registration = () => {
               id="confirmPassword"
               type="password"
               placeholder="Confirm Password"
+              required
+            />
+          </div>
+          <div className="mb-4">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="email"
+            >
+              Image
+            </label>
+            <input
+              {...register("image", { required: true })}
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline bg-white"
+              id="photo"
+              type="file"
+              placeholder="Enter your photo link here."
               required
             />
           </div>

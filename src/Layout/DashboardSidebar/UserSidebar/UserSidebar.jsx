@@ -11,7 +11,12 @@ const UserSidebar = () => {
               </Link>
             </li>
             <li className="mb-4">
-              <Link to={'/dashboard/profile'} className="hover:bg-gray-700 p-2 rounded block">
+              <Link to={'/dashboard/user-dashboard'} className="hover:bg-gray-700 p-2 rounded block">
+                Dashboard Home
+              </Link>
+            </li>
+            <li className="mb-4">
+              <Link to={'/dashboard/user-profile'} className="hover:bg-gray-700 p-2 rounded block">
                 Profile
               </Link>
             </li>

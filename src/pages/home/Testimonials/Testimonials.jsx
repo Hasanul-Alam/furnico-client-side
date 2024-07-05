@@ -3,9 +3,22 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import ReactStars from "react-rating-stars-component";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "../../../providers/AuthProvider";
+import axios from "axios";
 
 const Testimonials = () => {
-    const review = "Donec facilisis quam ut purus rutrum lobortis. Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate velit imperdiet dolor tempor tristique. Pellentesque habitant morbi tristique senectus et netus et malesuada fames acturpis egestas. Integer convallis volutpat dui quis scelerisque."
+  const [reviews, setReviews] = useState([]);
+  const { user } = useContext(AuthContext);
+  useEffect(() => {
+    const loadData = async () => {
+      const res = await axios.get(
+        `https://furnico-server.onrender.com/review`
+      );
+      setReviews(res.data);
+    };
+    loadData();
+  }, [user]);
   return (
     <div className="bg-white text-black py-10">
       <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
@@ -17,48 +30,26 @@ const Testimonials = () => {
           modules={[Navigation]}
           className="mySwiper my-20 text-center"
         >
-          <SwiperSlide>
-            <p className="mx-16">
-              {review}
-            </p>
-            <img
-              src="https://i.ibb.co/H2q4DDb/person-1.jpg"
-              alt="person-1"
-              className="max-w-[80px] block mx-auto rounded-full mt-5"
-            />
-            <div className="flex justify-center mt-2">
-              <ReactStars
-                count={5}
-                value={4}
-                size={24}
-                activeColor="#ffd700"
-                edit={false}
+          {reviews.map((review) => (
+            <SwiperSlide key={review._id}>
+              <p className="mx-16">{review.comments}</p>
+              <img
+                src={review.image}
+                alt="person-1"
+                className="max-w-[80px] block mx-auto rounded-full mt-5"
               />
-            </div>
-            <p className="mt-2">Maria Jones</p>
-            <p>CEO Co-Founder, XYZ Inc.</p>
-          </SwiperSlide>
-          <SwiperSlide>
-            <p className="mx-16">
-              {review}
-            </p>
-            <img
-              src="https://i.ibb.co/H2q4DDb/person-1.jpg"
-              alt="person-1"
-              className="max-w-[80px] block mx-auto rounded-full mt-5"
-            />
-            <div className="flex justify-center mt-2">
-              <ReactStars
-                count={5}
-                value={4}
-                size={24}
-                activeColor="#ffd700"
-                edit={false}
-              />
-            </div>
-            <p className="mt-2">Maria Jones</p>
-            <p>CEO Co-Founder, XYZ Inc.</p>
-          </SwiperSlide>
+              <div className="flex justify-center mt-2">
+                <ReactStars
+                  count={5}
+                  value={review.rating}
+                  size={24}
+                  activeColor="#ffd700"
+                  edit={false}
+                />
+              </div>
+              <p className="mt-2">{review.name}</p>
+            </SwiperSlide>
+          ))}
         </Swiper>
       </div>
     </div>

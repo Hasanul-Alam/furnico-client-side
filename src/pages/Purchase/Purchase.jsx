@@ -17,16 +17,12 @@ const Purchase = () => {
   const year = currentDate.getFullYear();
   const formattedDate = `${day}-${month}-${year}`;
 
-  //Status
-  const status = "pending";
 
   const handlePayment = (data) => {
-    const formData = data;
 
     // Pushing date and status in the data
-    formData.date = formattedDate;
-    formData.status = status;
-    const orderInfo = formData;
+    const currentDate = formattedDate;
+    const orderInfo = {...data, date:currentDate, status: 'pending'};
 
     if (price <= 0) {
       Swal.fire({
@@ -35,11 +31,11 @@ const Purchase = () => {
         text: "Get something first",
       });
     } else {
-      axios.post("http://localhost:3000/orders", orderInfo).then((res) => {
+      axios.post("https://furnico-server.onrender.com/orders", orderInfo).then((res) => {
         if (res.data.insertedId) {
           // Remove data from cart
           axios
-            .delete(`http://localhost:3000/cart?email=${user.email}`)
+            .delete(`https://furnico-server.onrender.com/cart?email=${user.email}`)
             .then((res) => {
               if (res.data.deletedCount > 0) {
                 Swal.fire("Your payment is successfull");

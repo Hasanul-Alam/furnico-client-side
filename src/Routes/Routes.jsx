@@ -17,6 +17,11 @@ import UserOrders from "../pages/dashboard/UserDashboard/UserOrders/UserOrders";
 import AdminRoute from "./AdminRoute";
 import ManageAllOrders from "../pages/dashboard/AdminDashboard/ManageAllOrders/ManageAllOrders";
 import ManageAllUsers from "../pages/dashboard/AdminDashboard/ManageAllUsers/ManageAllUsers";
+import AddProduct from "../pages/dashboard/AdminDashboard/AddProduct/AddProduct";
+import ManageProduct from "../pages/dashboard/AdminDashboard/ManageProduct/ManageProducts";
+import AdminProfile from "../pages/dashboard/AdminDashboard/AdminProfile/AdminProfile";
+import UserProfile from "../pages/dashboard/UserDashboard/UserProfile/UserProfile";
+import Review from "../pages/dashboard/UserDashboard/Review/Review";
 
 export const router = createBrowserRouter([
   {
@@ -103,19 +108,59 @@ export const router = createBrowserRouter([
       },
       {
         path: "manage-all-orders",
-        element: <ManageAllOrders></ManageAllOrders>
+        element: (
+          <AdminRoute>
+            <ManageAllOrders></ManageAllOrders>
+          </AdminRoute>
+        ),
       },
       {
         path: "all-users",
-        element: <ManageAllUsers></ManageAllUsers>
+        element: (
+          <AdminRoute>
+            <ManageAllUsers></ManageAllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "manage-products",
+        element: (
+          <AdminRoute>
+            <ManageProduct></ManageProduct>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "add-product",
+        element: (
+          <AdminRoute>
+            <AddProduct></AddProduct>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "admin-profile",
+        element: (
+          <AdminRoute>
+            <AdminProfile></AdminProfile>
+          </AdminRoute>
+        ),
       },
       {
         path: "user-dashboard",
         element: <UserDashboard></UserDashboard>,
       },
       {
+        path: "user-profile",
+        element: <UserProfile></UserProfile>
+      },
+      {
         path: "my-orders",
         element: <UserOrders></UserOrders>,
+      },
+      {
+        path: "review",
+        element: <Review></Review>
       },
     ],
   },

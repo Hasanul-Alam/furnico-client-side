@@ -12,7 +12,7 @@ const Cart = () => {
   useEffect(() => {
     const loadData = async () => {
       const res = await axios.get(
-        `http://localhost:3000/cart?email=${user.email}`
+        `https://furnico-server.onrender.com/cart?email=${user.email}`
       );
       setCartItems(res.data);
     };
@@ -34,7 +34,7 @@ const Cart = () => {
       confirmButtonText: "Yes, remove it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/cart-item/${id}`).then((res) => {
+        axios.delete(`https://furnico-server.onrender.com/cart-item/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setRefetch(!refetch);
 

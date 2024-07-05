@@ -8,7 +8,7 @@ const useRole = () => {
   useEffect(() => {
     const loadData = async () => {
       const res = await axios.get(
-        `http://localhost:3000/users?email=${user.email}`
+        `https://furnico-server.onrender.com//users?email=${user.email}`
       );
       setUserRole(res.data.role);
     };

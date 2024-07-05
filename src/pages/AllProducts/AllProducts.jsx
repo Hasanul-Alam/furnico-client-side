@@ -6,7 +6,7 @@ const AllProducts = () => {
   const { user } = useContext(AuthContext);
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:3000/all-products")
+    fetch("https://furnico-server.onrender.com/all-products")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

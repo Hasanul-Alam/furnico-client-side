@@ -1,7 +1,19 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/AuthProvider";
 
 
 const AdminSidebar = () => {
+  const {logout } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logout()
+      .then(() => {})
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
     return (
         <nav className="flex-1 p-4">
           <ul>
@@ -11,7 +23,12 @@ const AdminSidebar = () => {
               </Link>
             </li>
             <li className="mb-4">
-              <Link to={'/dashboard/profile'} className="hover:bg-gray-700 p-2 rounded block">
+              <Link to={'/dashboard/admin-dashboard'} className="hover:bg-gray-700 p-2 rounded block">
+                Dashboard Home
+              </Link>
+            </li>
+            <li className="mb-4">
+              <Link to={'/dashboard/admin-profile'} className="hover:bg-gray-700 p-2 rounded block">
                 Profile
               </Link>
             </li>
@@ -36,7 +53,7 @@ const AdminSidebar = () => {
               </Link>
             </li>
             <li className="mb-4">
-                <button className="hover:bg-gray-700 p-2 rounded block w-full text-start">
+                <button onClick={handleLogOut} className="hover:bg-gray-700 p-2 rounded block w-full text-start">
                     Logout
                 </button>
             </li>

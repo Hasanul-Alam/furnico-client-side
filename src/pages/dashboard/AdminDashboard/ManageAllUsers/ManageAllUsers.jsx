@@ -9,7 +9,7 @@ const ManageAllUsers = () => {
   const [refetch, setRefetch] = useState(false);
   useEffect(() => {
     axios
-      .get("http://localhost:3000/all-users")
+      .get("https://furnico-server.onrender.com/all-users")
       .then((res) => setUsers(res.data));
   }, [refetch]);
 
@@ -25,7 +25,7 @@ const ManageAllUsers = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .patch(`http://localhost:3000/all-users/${id}`, { role: "admin" })
+          .patch(`https://furnico-server.onrender.com/all-users/${id}`, { role: "admin" })
           .then((res) => {
             if (res.data.modifiedCount > 0) {
               setRefetch(!refetch);
@@ -70,7 +70,7 @@ const ManageAllUsers = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axios.delete(`http://localhost:3000/user/${id}`).then((res) => {
+        axios.delete(`https://furnico-server.onrender.com/user/${id}`).then((res) => {
           if (res.data.deletedCount > 0) {
             setRefetch(!refetch);
             Swal.fire({

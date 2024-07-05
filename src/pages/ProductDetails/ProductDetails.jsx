@@ -12,13 +12,13 @@ const ProductDetails = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:3000/products/${id}`)
+      .get(`https://furnico-server.onrender.com/products/${id}`)
       .then((res) => setProduct(res.data));
   }, []);
 
   const handleAddToCart = () => {
     axios
-      .post("http://localhost:3000/cart", {
+      .post("https://furnico-server.onrender.com/cart", {
         image: product.image,
         name: product.name,
         price: product.price,
