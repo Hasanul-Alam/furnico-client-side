@@ -3,12 +3,14 @@ import { FaFacebookF } from "react-icons/fa6";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { IoLogoLinkedin } from "react-icons/io";
+import { FaRegEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <div className="bg-white text-black py-16">
       <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
         {/* Footer Top */}
+        <h4 className="text-xl -mb-16 flex items-center max-md:mb-4 max-md:justify-center"><FaRegEnvelope className="mr-2"/>Subscribe to Newsletter</h4>
         <div className="flex gap-4 justify-between items-center max-md:block">
           <div className="w-4/5 flex items-center gap-4 max-md:block max-md:mx-auto ">
             {/* Message Form */}
@@ -62,28 +64,28 @@ const Footer = () => {
               </button>
             </div>
           </div>
-            <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:mt-5 max-md:justify-center">
-              <p className="max-md:mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-            </div>
-            <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
-              <p className="max-md:mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-            </div>
-            <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
-              <p className="max-md:mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-            </div>
-            <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
-              <p className="max-md:mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-              <p className="mt-2">About Us</p>
-            </div>
+          <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:mt-5 max-md:justify-center">
+            <p className="max-md:mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+          </div>
+          <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
+            <p className="max-md:mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+          </div>
+          <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
+            <p className="max-md:mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+          </div>
+          <div className="max-md:flex max-md:gap-4 max-md:items-center max-md:justify-center">
+            <p className="max-md:mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+            <p className="mt-2">About Us</p>
+          </div>
         </div>
 
         {/* Footer Bottom */}

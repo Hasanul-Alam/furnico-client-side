@@ -22,6 +22,7 @@ import ManageProduct from "../pages/dashboard/AdminDashboard/ManageProduct/Manag
 import AdminProfile from "../pages/dashboard/AdminDashboard/AdminProfile/AdminProfile";
 import UserProfile from "../pages/dashboard/UserDashboard/UserProfile/UserProfile";
 import Review from "../pages/dashboard/UserDashboard/Review/Review";
+import Contact from "../pages/Contact/Contact";
 
 export const router = createBrowserRouter([
   {
@@ -37,12 +38,12 @@ export const router = createBrowserRouter([
         element: <About></About>,
       },
       {
+        path: "contact",
+        element: <Contact></Contact>,
+      },
+      {
         path: "all-products",
-        element: (
-          <PrivateRoute>
-            <AllProducts></AllProducts>
-          </PrivateRoute>
-        ),
+        element: <AllProducts></AllProducts>,
       },
       {
         path: "login",
@@ -152,7 +153,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "user-profile",
-        element: <UserProfile></UserProfile>
+        element: <UserProfile></UserProfile>,
       },
       {
         path: "my-orders",
@@ -160,7 +161,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "review",
-        element: <Review></Review>
+        element: <Review></Review>,
       },
     ],
   },

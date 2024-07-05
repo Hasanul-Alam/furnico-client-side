@@ -86,7 +86,7 @@ const Navbar = () => {
                     About
                   </Link>
                   <Link
-                    to={"/"}
+                    to={"/contact"}
                     className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
                   >
                     Contact
@@ -144,48 +144,57 @@ const Navbar = () => {
               Home
             </Link>
             <Link
-              to={"/"}
+              to={"/about"}
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
             >
               About
             </Link>
             <Link
-              to={"/"}
+              to={"/contact"}
               className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
             >
               Contact
             </Link>
             <Link
-              to={"/cart"}
-              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+              className="text-gray-300 hover:bg-gray-700 hover:text-white block py-2 rounded-md text-base font-semibold"
             >
-              Cart
-            </Link>
-            {user ? (
+              {user ? (
               <Link
-                to={"/user-dashboard"}
-                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+                to={
+                  userRole === "admin"
+                    ? "/dashboard/admin-dashboard"
+                    : "/dashboard/user-dashboard"
+                }
+                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
               >
                 {user.displayName}
               </Link>
             ) : (
               <></>
             )}
+            </Link>
+            
             {user ? (
               <button
                 onClick={handleLogOut}
-                className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
+                className="w-full text-start text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
               >
                 Logout
               </button>
             ) : (
               <Link
                 to={"/login"}
-                className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+                className="w-full text-start text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-semibold"
               >
                 Login
               </Link>
             )}
+            <Link
+              to={"/cart"}
+              className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-semibold"
+            >
+              Cart
+            </Link>
           </div>
         </div>
       </nav>
