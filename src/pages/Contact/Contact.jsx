@@ -3,31 +3,31 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 const Contact = () => {
   return (
-    <div className="bg-gray-200 text-black min-h-screen py-10">
+    <div className="bg-gray-200 text-black min-h-screen py-10 flex items-center justify-center">
       <div className="w-2/4 mx-auto max-md:w-11/12">
         {/* Location, Message, Phone Number */}
-        <div className="grid grid-cols-3 gap-5 justify-items-center max-md:grid-cols-1 max-md:justify-items-start">
+        <div className="grid grid-cols-3 gap-5 justify-items-center max-md:grid-cols-1 max-md:justify-items-start my-10">
           <div className="flex gap-4 items-center">
             <div className="bg-green-800 p-5 rounded text-white text-xl">
               <FaLocationDot />
             </div>
             <p>
-              43 Raymouth Rd. Baltemoer,
+              Ramchandrapur, Bashar Road
               <br />
-              London 3910
+              Rajshahi, Bangladesh
             </p>
           </div>
           <div className="flex gap-4 items-center">
             <div className="bg-green-800 p-5 rounded text-white text-xl">
               <FaEnvelope />
             </div>
-            <p>info@yourdomain.com</p>
+            <p>hasanulalam0000@gmail.com</p>
           </div>
           <div className="flex gap-4 items-center">
             <div className="bg-green-800 p-5 rounded text-white text-xl">
               <FaPhoneAlt />
             </div>
-            <p>+1 294 3925 3939</p>
+            <p>+88 017 97888924</p>
           </div>
           <div></div>
           <div></div>

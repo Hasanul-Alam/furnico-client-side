@@ -23,11 +23,13 @@ import AdminProfile from "../pages/dashboard/AdminDashboard/AdminProfile/AdminPr
 import UserProfile from "../pages/dashboard/UserDashboard/UserProfile/UserProfile";
 import Review from "../pages/dashboard/UserDashboard/Review/Review";
 import Contact from "../pages/Contact/Contact";
+import NotFound from "../pages/NotFound/NotFound";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <NotFound/>,
     children: [
       {
         index: true,

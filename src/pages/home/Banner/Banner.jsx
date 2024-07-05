@@ -13,9 +13,11 @@ const Banner = () => {
               Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet
               velit. Aliquam vulputate velit imperdiet dolor tempor tristique.
             </p>
-            <button className="btn btn-warning rounded-full text-black px-5 text-lg">
-              Shop Now
-            </button>
+            <Link to={'/all-products'}>
+              <button className="btn btn-warning rounded-full text-black px-5 text-lg">
+                Shop Now
+              </button>
+            </Link>
             <Link to={"/all-products"}>
               <button className="btn border-2 border-gray-400 bg-green-900 text-white text-lg px-5 rounded-full ms-2 my-5 hover:bg-green-900 hover:border-white">
                 Explore

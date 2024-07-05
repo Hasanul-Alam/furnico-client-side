@@ -10,7 +10,10 @@ const Footer = () => {
     <div className="bg-white text-black py-16">
       <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
         {/* Footer Top */}
-        <h4 className="text-xl -mb-16 flex items-center max-md:mb-4 max-md:justify-center"><FaRegEnvelope className="mr-2"/>Subscribe to Newsletter</h4>
+        <h4 className="text-xl -mb-16 flex items-center max-md:mb-4 max-md:justify-center">
+          <FaRegEnvelope className="mr-2" />
+          Subscribe to Newsletter
+        </h4>
         <div className="flex gap-4 justify-between items-center max-md:block">
           <div className="w-4/5 flex items-center gap-4 max-md:block max-md:mx-auto ">
             {/* Message Form */}
@@ -50,9 +53,11 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex gap-4 mt-5 max-md:justify-center">
-              <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
-                <FaFacebookF />
-              </button>
+              <a href="https://www.facebook.com/hasanul.alam.prince" target="blank">
+                <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
+                  <FaFacebookF />
+                </button>
+              </a>
               <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
                 <FaTwitter />
               </button>

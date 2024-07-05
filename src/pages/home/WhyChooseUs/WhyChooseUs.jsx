@@ -16,22 +16,22 @@ const WhyChooseUs = () => {
               tristique.
             </p>
             <div className="flex gap-5 flex-wrap mt-14 items-center text-start">
-                <div className="w-[47%]">
+                <div className="w-[47%] max-md:w-[45%]">
                     <FiTruck className="text-[1.75rem]"/>
                     <h4 className="font-semibold my-2">Fast and free shipping</h4>
                     <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate</p>
                 </div>
-                <div className="w-[47%]">
+                <div className="w-[47%] max-md:w-[45%]">
                     <HiOutlineShoppingBag className="text-[1.75rem]"/>
                     <h4 className="font-semibold my-2">Easy to shop</h4>
                     <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate</p>
                 </div>
-                <div className="w-[47%] mt-5">
+                <div className="w-[47%] mt-5 max-md:w-[45%]">
                     <MdOutlineMessage className="text-[1.75rem]"/>
                     <h4 className="font-semibold mt-3">24/7 Support</h4>
                     <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate</p>
                 </div>
-                <div className="w-[47%] mt-5">
+                <div className="w-[47%] mt-5 max-md:w-[45%]">
                     <FaArrowRightArrowLeft className="text-[1.75rem]"/>
                     <h4 className="font-semibold mt-3">Hassle Free Returns</h4>
                     <p className="text-sm">Donec vitae odio quis nisl dapibus malesuada. Nullam ac aliquet velit. Aliquam vulputate</p>
