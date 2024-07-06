@@ -53,19 +53,26 @@ const Footer = () => {
               </p>
             </div>
             <div className="flex gap-4 mt-5 max-md:justify-center">
-              <a href="https://www.facebook.com/hasanul.alam.prince" target="blank">
+              <a
+                href="https://www.facebook.com/hasanul.alam.prince"
+                target="blank"
+              >
                 <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
                   <FaFacebookF />
                 </button>
               </a>
+              <a href="https://www.instagram.com/w3_developer/" target="blank">
+                <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
+                  <FaInstagram />
+                </button>
+              </a>
+              <a href="www.linkedin.com/in/md-hasanul-alam-610b8a238" target="blank">
+                <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
+                  <IoLogoLinkedin />
+                </button>
+              </a>
               <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
                 <FaTwitter />
-              </button>
-              <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
-                <FaInstagram />
-              </button>
-              <button className="btn btn-circle bg-gray-300 text-slate-600 border-0 hover:bg-green-900 hover:text-white">
-                <IoLogoLinkedin />
               </button>
             </div>
           </div>

@@ -1,22 +1,20 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import { Link } from "react-router-dom";
+import useProducts from "../../hooks/useProducts";
 
 const AllProducts = () => {
+  
   const { user } = useContext(AuthContext);
-  const [products, setProducts] = useState([]);
-  useEffect(() => {
-    fetch("https://furnico-server.onrender.com/all-products")
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
-  }, []);
+  const [products] = useProducts();
+
   return (
     <div className="bg-white py-10">
       {/* <h2 className="text-xl text-center text-black">Total products: {products.length}</h2> */}
       <div className="flex flex-wrap gap-5 justify-center">
         {products.map((product) => (
           <div
-            key={product.id}
+            key={product._id}
             className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10 text-black"
           >
             <figure className="w-3/4 mx-auto max-md:w-full">

@@ -1,16 +1,13 @@
-import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import useProducts from "../../../hooks/useProducts";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+
   const {user} = useContext(AuthContext);
-  useEffect(() => {
-    axios
-      .get("https://furnico-server.onrender.com/all-products")
-      .then((res) => setProducts(res.data));
-  }, []);
+  const [products] = useProducts();
+
   return (
     <div className="bg-white py-16">
       <div className="w-8/12 mx-auto max-md:w-11/12 text-black">
@@ -26,7 +23,7 @@ const Products = () => {
         <div className="flex flex-wrap gap-5 justify-center">
           {products.slice(0,6).map((product) => (
             <div
-              key={product.key}
+              key={product._id}
               className="card bg-slate-100 w-3/12 shadow-xl max-md:w-full mt-10"
             >
               <figure className="w-3/4 mx-auto max-md:w-full">
