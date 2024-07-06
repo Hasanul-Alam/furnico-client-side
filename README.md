@@ -33,3 +33,5 @@ Welcome to our E-Commerce Website! This platform allows users to browse and purc
 
 8. **Authentication**
    - The website incorporates robust security features, including Firebase authentication for secure Google sign-in.
+
+### Live Site Link: https://simple-react-authenticat-6665c.web.app/
