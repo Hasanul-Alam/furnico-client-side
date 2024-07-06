@@ -16,10 +16,18 @@ const AdminProfile = () => {
               <a href="#" className="text-blue-500 hover:text-blue-700 mx-2">
                 Twitter
               </a>
-              <a href="#" className="text-blue-500 hover:text-blue-700 mx-2">
+              <a
+                href="www.linkedin.com/in/md-hasanul-alam-610b8a238"
+                target="blank"
+                className="text-blue-500 hover:text-blue-700 mx-2"
+              >
                 LinkedIn
               </a>
-              <a href="#" className="text-blue-500 hover:text-blue-700 mx-2">
+              <a
+                href="https://github.com/Hasanul-Alam"
+                target="blank"
+                className="text-blue-500 hover:text-blue-700 mx-2"
+              >
                 GitHub
               </a>
             </div>
@@ -30,12 +38,11 @@ const AdminProfile = () => {
         <div className="mt-10">
           <h3 className="text-2xl font-bold text-gray-900">About Me</h3>
           <p className="mt-4 text-gray-700">
-            A highly motivated MERN stack developer with a strong
-            foundation in MongoDB, Express.js, React, and Node.js. Passionate
-            about creating dynamic, user-friendly web applications. Adept at
-            problem-solving and eager to leverage skills in a collaborative
-            environment to contribute to innovative projects and continuous
-            learning.
+            A highly motivated MERN stack developer with a strong foundation in
+            MongoDB, Express.js, React, and Node.js. Passionate about creating
+            dynamic, user-friendly web applications. Adept at problem-solving
+            and eager to leverage skills in a collaborative environment to
+            contribute to innovative projects and continuous learning.
           </p>
         </div>
 
